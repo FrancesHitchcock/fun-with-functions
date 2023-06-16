@@ -128,10 +128,25 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) {
   //eslint-disable-line
+  const tempProduct = multiply(multArr[0], multArr[1])[0];
+  const firstEl = multiply(tempProduct, multArr[2])[0];
+
+  const secondEl =
+    "The numbers " +
+    multArr[0] +
+    "," +
+    multArr[1] +
+    "," +
+    multArr[2] +
+    " have a product of " +
+    firstEl +
+    ".";
+
+  return [firstEl, secondEl];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
@@ -156,9 +171,21 @@ let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
   //eslint-disable-line
+  let firstEl = multiply(dynamicArray[0], dynamicArray[1])[0];
+
+  for (let i = 2; i < dynamicArray.length; i++) {
+    firstEl *= dynamicArray[i];
+  }
+
+  const secondEl =
+    "The numbers " + dynamicArray.join() + " have a product of 120.";
+
+  return [firstEl, secondEl];
 }
 
+// console.log(multiplyAnyArray(testDynamicArray));
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
