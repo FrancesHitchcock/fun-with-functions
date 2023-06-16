@@ -171,10 +171,13 @@ let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
   //eslint-disable-line
-  let firstEl = multiply(dynamicArray[0], dynamicArray[1])[0];
 
-  for (let i = 2; i < dynamicArray.length; i++) {
-    firstEl *= dynamicArray[i];
+  let tempFirstEl;
+  let firstEl = 1;
+
+  for (let i = 0; i < dynamicArray.length; i++) {
+    tempFirstEl = multiply(firstEl, dynamicArray[i])[0];
+    firstEl = tempFirstEl;
   }
 
   const secondEl =
