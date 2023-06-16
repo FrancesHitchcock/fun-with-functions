@@ -181,7 +181,11 @@ function multiplyAnyArray(dynamicArray) {
   }
 
   const secondEl =
-    "The numbers " + dynamicArray.join() + " have a product of 120.";
+    "The numbers " +
+    dynamicArray.join() +
+    " have a product of " +
+    firstEl +
+    ".";
 
   return [firstEl, secondEl];
 }
