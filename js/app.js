@@ -60,8 +60,10 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) {
   //eslint-disable-line
-  const firstEl = a + b + c;
-  const secondEl = a * b * c;
+  const interimSum = sum(a, b)[0];
+  const firstEl = sum(interimSum, c)[0];
+  const interimProduct = multiply(a, b)[0];
+  const secondEl = multiply(interimProduct, c)[0];
   const thirdEl = a + " and " + b + " and " + c + " sum to " + firstEl + ".";
   const fourthEl =
     "The product of " + a + " and " + b + " and " + c + " is " + secondEl + ".";
@@ -89,11 +91,27 @@ let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
   //eslint-disable-line
+  const firstSum = sum(sumArr[0], sumArr[1])[0];
+  const finalSum = sum(firstSum, sumArr[2])[0];
+
+  const secondEl =
+    sumArr[0] +
+    "," +
+    sumArr[1] +
+    "," +
+    sumArr[2] +
+    " was passed in as an array of numbers, and " +
+    finalSum +
+    " is their sum.";
+
+  return [finalSum, secondEl];
 }
+
+// sumArray(testArray);
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
